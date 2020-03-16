@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <title>COVID-19 Visualization</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+<script src="p5.clickable.js"></script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -13,6 +17,8 @@ body {font-size:16px;}
 </style>
 <body>
 
+
+
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
@@ -23,9 +29,9 @@ body {font-size:16px;}
     <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">OVERVIEW</a> 
     <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">GLOBAL</a> 
     <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">SPECIFIC PLACES</a> 
-    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">STOCK MARKET</a> 
+    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">SIDE EFFECTS</a> 
     <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">VIRUSES COMPARISON</a> 
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">NEWS</a>
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">INFECTION SIMULATION</a>
   </div>
 </nav>
 
@@ -53,20 +59,54 @@ body {font-size:16px;}
     <p>The SARS-CoV-2 virus is a betacoronavirus, like MERS-CoV and SARS-CoV.  All three of these viruses have their origins in bats. The sequences from U.S. patients are similar to the one that China initially posted, suggesting a likely single, recent emergence of this virus from an animal reservoir.</p>
   </p>
 
-  <!-- Photo grid (modal) -->
+  
+    <script type="text/javascript"
+	    src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script type="text/javascript">
+        function initViz() {
+            var containerDiv = document.getElementById("vizContainer"),
+                url = "http://public.tableau.com/views/RegionalSampleWorkbook/Storms",
+                options = {
+                    hideTabs: true,
+                    onFirstInteractive: function () {
+                        console.log("Run this code when the viz has finished loading.");
+                    }
+                };
+
+            var viz = new tableau.Viz(containerDiv, url, options);
+            // Create a viz object and embed it in the container div.
+        }
+    </script>
+
+<body onload="initViz();">
+    <div id="vizContainer" style="width:800px; height:700px;"></div>
+</body>
+
+  <!-- Services -->
+  <div class="w3-container" id="services" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Specific Places.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <!-- Photo grid (modal) -->
   <div class="w3-row-padding">
     <div class="w3-half">
-      <img src="/w3images/kitchenconcrete.jpg" style="width:100%" onclick="onClick(this)" alt="Concrete meets bricks">
-      <img src="/w3images/livingroom.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
-      <img src="/w3images/diningroom.jpg" style="width:100%" onclick="onClick(this)" alt="White walls with designer chairs">
+      <img src="/images/3.1_画板 1.png" style="width:100%" onclick="onClick(this)" alt="3.1">
+      <img src="/images/3.2_画板 1.png" style="width:100%" onclick="onClick(this)" alt="3.2">
+      <img src="/images/3.3_画板 1.png" style="width:100%" onclick="onClick(this)" alt="3.3">
     </div>
 
-    <div class="w3-half">
-      <img src="/w3images/atrium.jpg" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
-      <img src="/w3images/bedroom.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
-      <img src="/w3images/livingroom2.jpg" style="width:100%" onclick="onClick(this)" alt="Scandinavian design">
-    </div>
-  </div>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>    
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  <script type="text/javascript" src='../js-examples-rendering-helpers/iframe-height.js'></script></head>
+  <body id="markers-on-the-map">
+    <div class="page-header">
+    <script type="text/javascript" src='demo.js'></script>
 
   <!-- Modal for full size images on click-->
   <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
@@ -76,28 +116,18 @@ body {font-size:16px;}
       <p id="caption"></p>
     </div>
   </div>
-
-  <!-- Services -->
-  <div class="w3-container" id="services" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Services.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>We are a interior design service that focus on what's best for your home and what's best for you!</p>
-    <p>Some text about our services - what we do and what we offer. We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
   </div>
   
   <!-- Designers -->
   <div class="w3-container" id="designers" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Designers.</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Side Effect.</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>The best team in the world.</p>
+    <p>Stock Market</p>
     <p>We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
     dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
     incididunt ut labore et quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     </p>
-    <p><b>Our designers are thoughtfully chosen</b>:</p>
+   
   </div>
 
   <!-- The Team -->
@@ -136,44 +166,42 @@ body {font-size:16px;}
 
   <!-- Packages / Pricing Tables -->
   <div class="w3-container" id="packages" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Packages.</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Viruses Comparsion</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>Some text our prices. Lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure</p>
+    <p>In this part we're going to compare the COVID-19 with SARS.</p>
   </div>
 
   <div class="w3-row-padding">
     <div class="w3-half w3-margin-bottom">
       <ul class="w3-ul w3-light-grey w3-center">
-        <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
-        <li class="w3-padding-16">Floorplanning</li>
-        <li class="w3-padding-16">10 hours support</li>
-        <li class="w3-padding-16">Photography</li>
-        <li class="w3-padding-16">20% furniture discount</li>
-        <li class="w3-padding-16">Good deals</li>
-        <li class="w3-padding-16">
-          <h2>$ 199</h2>
-          <span class="w3-opacity">per room</span>
+        <li class="w3-dark-grey w3-xlarge w3-padding-32">SARS</li>
+        <li class="w3-padding-16">8098 confirmed cases, across 29 countries</li>
+        <li class="w3-padding-16">774 death cases with 15% death rate</li>
+        <li class="w3-padding-16">spread through respiratory droplets and contaminated surfaces</li>
+        <li class="w3-padding-16">no treatment or cure, but antiviral medications and steroids worked for some people</li>
+        <li class="w3-padding-16">patients 60 and older had a 55 percent higher death rate</li>
+          <li>Key Symptoms: fever, respiratory symptoms, cough, malaise</li>
+          <li class="w3-opacity">End of pandemic: July 2003</li>
         </li>
         <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
+          <button class="w3-button w3-white w3-padding-large w3-hover-black"><a href="https://www.cdc.gov/about/history/sars/timeline.htm" title="SOURCE:CDC" target="_blank" class="w3-hover-opacity">SOURCE:CDC</a></button>
         </li>
       </ul>
     </div>
         
     <div class="w3-half">
       <ul class="w3-ul w3-light-grey w3-center">
-        <li class="w3-red w3-xlarge w3-padding-32">Pro</li>
-        <li class="w3-padding-16">Floorplanning</li>
-        <li class="w3-padding-16">50 hours support</li>
-        <li class="w3-padding-16">Photography</li>
-        <li class="w3-padding-16">50% furniture discount</li>
-        <li class="w3-padding-16">GREAT deals</li>
-        <li class="w3-padding-16">
-          <h2>$ 249</h2>
-          <span class="w3-opacity">per room</span>
+        <li class="w3-red w3-xlarge w3-padding-32">COVID-19</li>
+        <li class="w3-padding-16">over 120,000 cases, across 50 countries</li>
+        <li class="w3-padding-16">over 4700 death cases with 3.4% death rate</li>
+        <li class="w3-padding-16">spreads through respiratory droplets along with feces and other bodily secretions.</li>
+        <li class="w3-padding-16">none; supportive care is provided, pain relievers and fever reducers can alleviate symptoms.</li>
+        <li class="w3-padding-16">adults over 65 with underlying health conditions. </li>
+          <li>cough, fever, shortness of breath; 80 percent of cases are mild</li>
+          <li class="w3-opacity">status: ongoing</li>
         </li>
         <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-red w3-padding-large w3-hover-black">Sign Up</button>
+          <button class="w3-button w3-red w3-padding-large w3-hover-black"> <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" title="SOURCE:WHO" target="_blank" class="w3-hover-opacity">SOURCE:WHO</a></button></button>
         </li>
       </ul>
     </div>
@@ -181,31 +209,30 @@ body {font-size:16px;}
   
   <!-- Contact -->
   <div class="w3-container" id="contact" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Contact.</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Infection Simulation</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>Do you want us to style your home? Fill out the form and fill me in with the details :) We love meeting new people!</p>
+    <p>In the simulation below, you may find out how important it is to deploy quarantine methods? Change the parameters to see different results. :) </p>
     <form action="/action_page.php" target="_blank">
       <div class="w3-section">
-        <label>Name</label>
+        <label>Total people</label>
         <input class="w3-input w3-border" type="text" name="Name" required>
       </div>
       <div class="w3-section">
-        <label>Email</label>
+        <label>Infection Probability</label>
         <input class="w3-input w3-border" type="text" name="Email" required>
       </div>
       <div class="w3-section">
-        <label>Message</label>
+        <label>Quarantine (Input True or False)</label>
         <input class="w3-input w3-border" type="text" name="Message" required>
       </div>
-      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Send Message</button>
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Start Simulation</button>
     </form>  
   </div>
 
 <!-- End page content -->
-</div>div>
-
+</div>
 <!-- W3.CSS Container -->
-<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by Shaokang</p></div>
 
 <script>
 // Script to open and close sidebar
