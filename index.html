@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>COVID-19 Visualization</title>
+<title>COVID-19 Visualization Last Update:4.4.2020</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
 <script src="p5.clickable.js"></script>
@@ -10,251 +10,254 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <style>
-body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-body {font-size:16px;}
-.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-.w3-half img:hover{opacity:1}
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Poppins", sans-serif
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .w3-half img {
+    margin-bottom: -6px;
+    margin-top: 16px;
+    opacity: 0.8;
+    cursor: pointer
+  }
+
+  .w3-half img:hover {
+    opacity: 1
+  }
 </style>
+
 <body>
 
 
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-  <div class="w3-container">
-    <h3 class="w3-padding-64"><b>COVID-19<br>OVERVIEW</b></h3>
-  </div>
-  <div class="w3-bar-block">
-    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">OVERVIEW</a> 
-    <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">GLOBAL</a> 
-    <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">SPECIFIC PLACES</a> 
-    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">SIDE EFFECTS</a> 
-    <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">VIRUSES COMPARISON</a> 
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">INFECTION SIMULATION</a>
-  </div>
-</nav>
 
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-  <span>Company Name</span>
-</header>
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;"
+    id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+      style="width:100%;font-size:22px">Close Menu</a>
+    <div class="w3-container">
+      <h3 class="w3-padding-64"><b>COVID-19<br>HOW IT SPREADS</b></h3>
+      <h5>Last Update on 4.4. 2020</h5>
+    </div>
+    <div class="w3-bar-block">
+      <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">OVERVIEW</a>
+      <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">VIRUSES PROPERTIES</a>
+      <a href="#global" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">GLOBAL</a>
+      <a href="#howfast" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">HOW FAST</a>
+      <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">SPECIFIC PLACES</a>
+      <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">INFECTION SIMULATION</a>
+    </div>
+  </nav>
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
+  <!-- Top menu on small screens -->
+  <header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+    <span>Company Name</span>
+  </header>
 
-  <!-- Header -->
-  <div class="w3-container" style="margin-top:80px" id="showcase">
-    <h1 class="w3-jumbo"><b>COVID-19</b></h1>
-    <h1 class="w3-xxxlarge w3-text-red"><b>OVERVIEW.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-  </div>
- <!-- overview -->
-  <p>An outbreak of respiratory disease caused by a novel (new) coronavirus that was first detected in China and which has now been detected in more than 100 locations internationally</p>
-  <p>Coronaviruses are a large family of viruses that are common in people and many different species of animals, including camels, cattle, cats, and bats. Rarely, animal coronaviruses can infect people and then spread between people such as with MERS-CoV, SARS-CoV, and now with this new virus (named SARS-CoV-2).
-    <p>The SARS-CoV-2 virus is a betacoronavirus, like MERS-CoV and SARS-CoV.  All three of these viruses have their origins in bats. The sequences from U.S. patients are similar to the one that China initially posted, suggesting a likely single, recent emergence of this virus from an animal reservoir.</p>
-  </p>
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+    id="myOverlay"></div>
 
-  
-    <script type="text/javascript"
-	    src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
-    <script type="text/javascript">
-        function initViz() {
-            var containerDiv = document.getElementById("vizContainer"),
-                url = "http://public.tableau.com/views/RegionalSampleWorkbook/Storms",
-                options = {
-                    hideTabs: true,
-                    onFirstInteractive: function () {
-                        console.log("Run this code when the viz has finished loading.");
-                    }
-                };
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
-            var viz = new tableau.Viz(containerDiv, url, options);
-            // Create a viz object and embed it in the container div.
-        }
-    </script>
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="showcase">
+      <h1 class="w3-jumbo"><b>COVID-19</b></h1>
+      <h1 class="w3-xxxlarge w3-text-red"><b>OVERVIEW.</b></h1>
+      <hr style="width:50px;border:5px solid red" class="w3-round">
+      <img src="/images/who.jpeg" alt="quote" style="width: 500px;height: 450px;">
+      <hr style="width:50px;border:5px solid red" class="w3-round">
+    </div>
+    <!-- overview -->
+    <h1>
+      <p>Contents: </p>
+    </h1>
+    <ul>
+      <li>Virus Properties</li>
+      <li>A Map telling you how the virus spread across globe</li>
+      <li>An comparison chart telling the propotion of confirm/active/dead/recovered cases in five countries </li>
+      <li>A diagram illustrates the speed of infection</li>
+      <li>A Simulation game telling you how to slow down to speed of spread</li>
+    </ul>
 
-<body onload="initViz();">
-    <div id="vizContainer" style="width:800px; height:700px;"></div>
-</body>
 
-  <!-- Services -->
-  <div class="w3-container" id="services" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Specific Places.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <!-- Photo grid (modal) -->
-  <div class="w3-row-padding">
-    <div class="w3-half">
-      <img src="/images/3.1_画板 1.png" style="width:100%" onclick="onClick(this)" alt="3.1">
-      <img src="/images/3.2_画板 1.png" style="width:100%" onclick="onClick(this)" alt="3.2">
-      <img src="/images/3.3_画板 1.png" style="width:100%" onclick="onClick(this)" alt="3.3">
+
+
+    <!-- Packages / Pricing Tables -->
+    <div class="w3-container" id="packages" style="margin-top:75px">
+      <h1 class="w3-xxxlarge w3-text-red"><b>Viruses Properties</b></h1>
+      <hr style="width:50px;border:5px solid red" class="w3-round">
+      <p>Before we look into what happened to world today，we may first know about some basic properties of the COVID-19
+        by comparing it with other coronavirus.</p>
     </div>
 
-    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
-    <link rel="stylesheet" type="text/css" href="demo.css" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <link rel="stylesheet" type="text/css" href="../template.css" />
-    <script type="text/javascript" src='../test-credentials.js'></script>    
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
-  <script type="text/javascript" src='../js-examples-rendering-helpers/iframe-height.js'></script></head>
-  <body id="markers-on-the-map">
-    <div class="page-header">
-    <script type="text/javascript" src='demo.js'></script>
-
-  <!-- Modal for full size images on click-->
-  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
-    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption"></p>
-    </div>
-  </div>
-  </div>
-  
-  <!-- Designers -->
-  <div class="w3-container" id="designers" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Side Effect.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>Stock Market</p>
-    <p>We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-    incididunt ut labore et quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-   
-  </div>
-
-  <!-- The Team -->
-  <div class="w3-row-padding w3-grayscale">
-    <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
-        <img src="/w3images/team2.jpg" alt="John" style="width:100%">
-        <div class="w3-container">
-          <h3>John Doe</h3>
-          <p class="w3-opacity">CEO & Founder</p>
-          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
-        <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
-        <div class="w3-container">
-          <h3>Jane Doe</h3>
-          <p class="w3-opacity">Designer</p>
-          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
-        <img src="/w3images/team3.jpg" alt="Mike" style="width:100%">
-        <div class="w3-container">
-          <h3>Mike Ross</h3>
-          <p class="w3-opacity">Architect</p>
-          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Packages / Pricing Tables -->
-  <div class="w3-container" id="packages" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Viruses Comparsion</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>In this part we're going to compare the COVID-19 with SARS.</p>
-  </div>
-
-  <div class="w3-row-padding">
-    <div class="w3-half w3-margin-bottom">
-      <ul class="w3-ul w3-light-grey w3-center">
-        <li class="w3-dark-grey w3-xlarge w3-padding-32">SARS</li>
-        <li class="w3-padding-16">8098 confirmed cases, across 29 countries</li>
-        <li class="w3-padding-16">774 death cases with 15% death rate</li>
-        <li class="w3-padding-16">spread through respiratory droplets and contaminated surfaces</li>
-        <li class="w3-padding-16">no treatment or cure, but antiviral medications and steroids worked for some people</li>
-        <li class="w3-padding-16">patients 60 and older had a 55 percent higher death rate</li>
+    <div class="w3-row-padding">
+      <div class="w3-half w3-margin-bottom">
+        <ul class="w3-ul w3-light-grey w3-center">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">SARS</li>
+          <li class="w3-padding-16">8098 confirmed cases</li>
+          <li class="w3-padding-16">774 death cases with 15% death rate</li>
+          <li class="w3-padding-16">spread through respiratory droplets and contaminated surfaces</li>
+          <li class="w3-padding-16">no treatment or cure</li>
+          <li class="w3-padding-16">patients 60 and older had a 55 percent higher death rate</li>
           <li>Key Symptoms: fever, respiratory symptoms, cough, malaise</li>
           <li class="w3-opacity">End of pandemic: July 2003</li>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-white w3-padding-large w3-hover-black"><a href="https://www.cdc.gov/about/history/sars/timeline.htm" title="SOURCE:CDC" target="_blank" class="w3-hover-opacity">SOURCE:CDC</a></button>
-        </li>
-      </ul>
-    </div>
-        
-    <div class="w3-half">
-      <ul class="w3-ul w3-light-grey w3-center">
-        <li class="w3-red w3-xlarge w3-padding-32">COVID-19</li>
-        <li class="w3-padding-16">over 120,000 cases, across 50 countries</li>
-        <li class="w3-padding-16">over 4700 death cases with 3.4% death rate</li>
-        <li class="w3-padding-16">spreads through respiratory droplets along with feces and other bodily secretions.</li>
-        <li class="w3-padding-16">none; supportive care is provided, pain relievers and fever reducers can alleviate symptoms.</li>
-        <li class="w3-padding-16">adults over 65 with underlying health conditions. </li>
-          <li>cough, fever, shortness of breath; 80 percent of cases are mild</li>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-white w3-padding-large w3-hover-black"><a
+                href="https://www.cdc.gov/about/history/sars/timeline.htm" title="SOURCE:CDC" target="_blank"
+                class="w3-hover-opacity">SOURCE:CDC</a></button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="w3-half">
+        <ul class="w3-ul w3-light-grey w3-center">
+          <li class="w3-red w3-xlarge w3-padding-32">COVID-19</li>
+          <li class="w3-padding-16">over 600,000 cases</li>
+          <li class="w3-padding-16">over 4700 death cases with 3.4% death rate</li>
+          <li class="w3-padding-16">spreads through respiratory droplets along with feces and other bodily
+            secretions.</li>
+          <li class="w3-padding-16">none; supportive care is provided</li>
+          <li class="w3-padding-16">adults over 65 with underlying health conditions. </li>
+          <li>cough, fever, shortness of breath</li>
           <li class="w3-opacity">status: ongoing</li>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-red w3-padding-large w3-hover-black"> <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" title="SOURCE:WHO" target="_blank" class="w3-hover-opacity">SOURCE:WHO</a></button></button>
-        </li>
-      </ul>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-red w3-padding-large w3-hover-black"> <a
+                href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" title="SOURCE:WHO"
+                target="_blank" class="w3-hover-opacity">SOURCE:WHO</a></button></button>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-  
-  <!-- Contact -->
-  <div class="w3-container" id="contact" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Infection Simulation</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>In the simulation below, you may find out how important it is to deploy quarantine methods? Change the parameters to see different results. :) </p>
-    <form action="/action_page.php" target="_blank">
-      <div class="w3-section">
-        <label>Total people</label>
-        <input class="w3-input w3-border" type="text" name="Name" required>
-      </div>
-      <div class="w3-section">
-        <label>Infection Probability</label>
-        <input class="w3-input w3-border" type="text" name="Email" required>
-      </div>
-      <div class="w3-section">
-        <label>Quarantine (Input True or False)</label>
-        <input class="w3-input w3-border" type="text" name="Message" required>
-      </div>
-      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Start Simulation</button>
-    </form>  
-  </div>
+    <li><button class="w3-button w3-red w3-padding-large w3-hover-black"> <a href="viruses.html" title="SOURCE:WHO"
+          target="_blank" class="w3-hover-opacity">Click here to see the comparison of viruses
+        </a></button></button>
+    </li>
+    <img src="/images/causes.png" width="500px" height="500px" onclick="onClick(this)" alt="Causes">
+    <img src="/images/symptoms.jpeg" width="504px" height="448px" onclick="onClick(this)" alt="Symptoms">
+    <br><br>
+    <!--global-->
+    <div class="w3-container" id="global" style="margin-top:75px">
+      <h1 class="w3-xxxlarge w3-text-red"><b>Global Map</b></h1>
+      <hr style="width:50px;border:5px solid red" class="w3-round">
+      <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+      <script type="text/javascript">
+        function initViz() {
+          var containerDiv = document.getElementById("vizContainer"),
+            url = "https://public.tableau.com/views/COVID-19_15861562273840/COVID-19?:display_count=y&:origin=viz_share_link",
+            options = {
+              hideTabs: true,
+              onFirstInteractive: function () {
+                console.log("Run this code when the viz has finished loading.");
+              }
+            };
 
-<!-- End page content -->
-</div>
-<!-- W3.CSS Container -->
-<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by Shaokang</p></div>
+          var viz = new tableau.Viz(containerDiv, url, options);
+          // Create a viz object and embed it in the container div.
+        }
+      </script>
 
-<script>
-// Script to open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
- 
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
+      <body onload="initViz();">
+        <div id="vizContainer" style="width:800px; height:700px;"></div>
+      </body>
+      <div class="w3-container" id="HOWFAST" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>How fast?</b></h1>
+        <hr style="width:50px;border:5px solid red" class="w3-round">
+        <!-- Photo grid (modal) -->
+        <div class="w3-row-padding">
 
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-</script>
+          <img src="/images/mo.jpg" style="width:100%" onclick="onClick(this)" alt="phase 1">
+
+
+          <br>
+
+          <!-- Services -->
+          <div class="w3-container" id="services" style="margin-top:75px">
+            <h1 class="w3-xxxlarge w3-text-red"><b>Specific Places.</b></h1>
+            <hr style="width:50px;border:5px solid red" class="w3-round">
+            <!-- Photo grid (modal) -->
+            <div class="w3-row-padding">
+              <div class="w3-half">
+                <img src="/images/2.13.png" style="width:100%" onclick="onClick(this)" alt="2.13">
+                <img src="/images/2.23.png" style="width:100%" onclick="onClick(this)" alt="3.3">
+                <img src="/images/3.3.png" style="width:100%" onclick="onClick(this)" alt="3.23">
+                <img src="/images/3.13.png" style="width:100%" onclick="onClick(this)" alt="3.3">
+                <img src="/images/3.23.png" style="width:100%" onclick="onClick(this)" alt="3.23">
+              </div>
+
+
+              <!-- Modal for full size images on click-->
+              <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+                <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+                <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+                  <img id="img01" class="w3-image">
+                  <p id="caption"></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="w3-container" id="contact" style="margin-top:75px">
+
+              <head>
+                <h1 class="w3-xxxlarge w3-text-red"><b>Simulation.</b></h1>
+                <hr style="width:50px;border:5px solid red" class="w3-round">
+                <title>Virus Spreading Simulation</title>
+
+                <button class="w3-button w3-red w3-padding-large w3-hover-black"> <a href="index2.html"
+                    title="Simulation" target="_blank" class="w3-hover-opacity">Start Simulation</a></button></button>
+                <h4>
+                  <p>In this simulation, you can customize parameters like social distance and fatality rate etc. to
+                    find out what you could do to help slow down the speed of spreading.
+                  </p>
+                  <p>Attribute to Github:MTrajK</p>
+                </h4>
+                </form>
+            </div>
+
+            <!-- End page content -->
+          </div>
+          <!-- W3.CSS Container -->
+          <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px">
+            <p class="w3-center">Powered by Shaokang</p>
+          </div>
+
+          <script>
+            // Script to open and close sidebar
+            function w3_open() {
+              document.getElementById("mySidebar").style.display = "block";
+              document.getElementById("myOverlay").style.display = "block";
+            }
+
+            function w3_close() {
+              document.getElementById("mySidebar").style.display = "none";
+              document.getElementById("myOverlay").style.display = "none";
+            }
+
+            // Modal Image Gallery
+            function onClick(element) {
+              document.getElementById("img01").src = element.src;
+              document.getElementById("modal01").style.display = "block";
+              var captionText = document.getElementById("caption");
+              captionText.innerHTML = element.alt;
+            }
+          </script>
 
 </body>
-</html>
 
+</html>
